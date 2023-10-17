@@ -30,7 +30,6 @@ import '../i18n.config';
 import {ProposalSettingsFormData} from 'utils/types';
 import {GatingMenu} from 'containers/gatingMenu';
 import {DelegationGatingMenu} from 'containers/delegationGatingMenu';
-import UpdateBanner from 'containers/navbar/updateBanner';
 
 export const App: React.FC = () => {
   // TODO this needs to be inside a Routes component. Will be moved there with
@@ -109,8 +108,6 @@ export const App: React.FC = () => {
                 path="governance/proposals/:id"
                 element={<ProposalDetailsWrapper />}
               />
-              <Route path="community" element={<CommunityPage />} />
-              <Route path="settings" element={<SettingsPage />} />
               {/* Redirects the user to the dashboard page by default if no dao-specific page is specified. */}
               <Route index element={<Navigate to={'dashboard'} replace />} />
             </Route>
@@ -180,7 +177,6 @@ const DaoWrapper: React.FC = () => {
 
   return (
     <GovTokensWrappingProvider>
-      <UpdateBanner />
       <Navbar />
       <div className="min-h-screen">
         <GridLayout>
@@ -202,9 +198,6 @@ const DaoWrapper: React.FC = () => {
 // TipTap Editor behaves weirdly when they are imported from a different
 // file. - F.F. [08/15/2023]
 // PAGES
-const CommunityPage = lazy(() =>
-  import('pages/community').then(module => ({default: module.Community}))
-);
 const CreateDaoPage = lazy(() =>
   import('pages/createDAO').then(module => ({default: module.CreateDAO}))
 );
@@ -247,9 +240,6 @@ const ProposeSettingsPage = lazy(() =>
   import('pages/proposeSettings').then(module => ({
     default: module.ProposeSettings,
   }))
-);
-const SettingsPage = lazy(() =>
-  import('pages/settings').then(module => ({default: module.Settings}))
 );
 const TokensPage = lazy(() =>
   import('pages/tokens').then(module => ({default: module.Tokens}))

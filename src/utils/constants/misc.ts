@@ -1,14 +1,12 @@
 import {
-  IconCommunity,
   IconDashboard,
   IconFinance,
   IconGovernance,
   IconType,
-  IconSettings,
 } from '@aragon/ods-old';
 
 import {i18n} from '../../../i18n.config';
-import {Dashboard, Community, Finance, Governance, Settings} from '../paths';
+import {Dashboard, Finance, Governance} from '../paths';
 
 /** Time period options for token price change */
 export const enum TimeFilter {
@@ -53,16 +51,6 @@ export const NAV_LINKS_DATA: NavLinkData[] = [
     icon: IconGovernance,
   },
   {label: i18n.t('navLinks.finance'), path: Finance, icon: IconFinance},
-  {
-    label: i18n.t('navLinks.community'),
-    path: Community,
-    icon: IconCommunity,
-  },
-  {
-    label: i18n.t('navLinks.settings'),
-    path: Settings,
-    icon: IconSettings,
-  },
 ];
 
 export const EXPLORE_NAV_LINKS = [
